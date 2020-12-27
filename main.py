@@ -18,7 +18,7 @@ auth.set_access_token(key, secret)
 auth.secure = True
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-client = redis.Redis(host=os.getenv("HOST"), port=6379, db=10,
+client = redis.Redis(host=os.getenv("REDIS_HOST"), port=6379, db=12,
                      password=os.getenv("REDIS_PASS"))
 
 url = "https://api.sleeper.app/v1/players/nfl"
@@ -177,7 +177,9 @@ def weekly_trending():
         client.set(title, to_string)
     print("Updated weekly trending.")
 
-
+set_players()
+daily_trending()
+weekly_trending()
 print(time.ctime())
 schedule.every(2).days.at("12:00").do(set_players)
 schedule.every().day.at("16:30").do(trending)

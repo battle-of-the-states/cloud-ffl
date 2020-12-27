@@ -44,12 +44,12 @@ spec:
           valueFrom:
             secretKeyRef:
               key: REDIS_PASS
-              name: cloud-redis
-        - name: HOST
+              name: redis-pass
+        - name: REDIS_HOST
           valueFrom:
             secretKeyRef:
-              key: HOST
-              name: cloud-redis
+              key: REDIS_HOST
+              name: redis-pass
         - name: REDIS_HOST
           valueFrom:
             secretKeyRef:
