@@ -177,9 +177,7 @@ def weekly_trending():
         client.set(title, to_string)
     print("Updated weekly trending.")
 
-set_players()
-daily_trending()
-weekly_trending()
+
 print(time.ctime())
 schedule.every(2).days.at("12:00").do(set_players)
 schedule.every().day.at("16:30").do(trending)
