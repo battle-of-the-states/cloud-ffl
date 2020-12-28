@@ -180,7 +180,7 @@ def weekly_trending():
 
 print(time.ctime())
 schedule.every(2).days.at("12:00").do(set_players)
-schedule.every().day.at("16:30").do(trending)
+# schedule.every().day.at("16:30").do(trending)
 schedule.every().hour.do(daily_trending)
 schedule.every(4).hours.do(weekly_trending)
 
